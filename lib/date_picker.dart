@@ -131,18 +131,21 @@ class DatePicker {
     final List<Widget> listButtonActions = [
       TextButton(
         style: TextButton.styleFrom(foregroundColor: textColor),
+        child: Text(cancelText ?? "Cancel"),
+        onPressed: () {
+          Navigator.pop(context);
+        },
+      ),
+      TextButton(
+        style: TextButton.styleFrom(foregroundColor: Colors.white,
+          backgroundColor: Colors.black, shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.0),
+        ),),
         child: Text(confirmText ?? "OK"),
         onPressed: () {
           Navigator.pop(context, _selectedDate);
         },
       ),
-      TextButton(
-        style: TextButton.styleFrom(foregroundColor: textColor),
-        child: Text(cancelText ?? "Cancel"),
-        onPressed: () {
-          Navigator.pop(context);
-        },
-      )
     ];
 
     // handle the range of datetime
@@ -159,7 +162,7 @@ class DatePicker {
     }
 
     if (backgroundColor == null)
-      backgroundColor = DateTimePickerTheme.Default.backgroundColor;
+      backgroundColor = Colors.white;
 //    if (itemTextStyle == null)
 //      itemTextStyle = DateTimePickerTheme.Default.itemTextStyle;
 
@@ -172,7 +175,7 @@ class DatePicker {
         style: TextStyle(color: textColor),
       ),
       contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 14),
-      backgroundColor: backgroundColor,
+      backgroundColor: Colors.white,
       content: Container(
         width: 300,
         child: DatePickerWidget(

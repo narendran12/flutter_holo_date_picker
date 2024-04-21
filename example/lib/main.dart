@@ -9,7 +9,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'example',
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData(
+          primarySwatch: Colors.red,
+
+        useMaterial3: true,
+        dialogTheme: const DialogTheme(
+            backgroundColor: Colors.white,
+            surfaceTintColor: Colors.transparent,
+        ),
+
+      ),
 //      home: DateTesting(),
       home: Scaffold(
         appBar: AppBar(
@@ -39,6 +48,7 @@ class MyHomePage extends StatelessWidget {
                 lastDate: DateTime(2090),
                 dateFormat: "dd-MMMM-yyyy",
                 locale: DateTimePickerLocale.en_us,
+                backgroundColor: Colors.white,
                 looping: true,
               );
 
